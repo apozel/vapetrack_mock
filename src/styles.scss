@@ -1,0 +1,12 @@
+@import "./theme.scss";
+
+// framework component styles
+@import "~@nebular/theme/styles/globals";
+@import "~@nebular/auth/styles/globals";
+
+@include nb-install() {
+  // append the install mixin inside of the nb-install
+
+  @include nb-theme-global();
+  @include nb-auth-global();
+}
