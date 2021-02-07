@@ -1,7 +1,8 @@
 import { Observable } from "rxjs";
-import { EcigActive } from "../../model/ecig";
+import { EcigActive, EcigActiveChart } from "../../model/ecig";
 
 export abstract class EcigEvolutionInterface {
-  abstract getEcigEvolutionData(period: string): Observable<EcigActive[]>;
+  abstract getListData(): Observable<EcigActive[]>;
+  abstract getChartData(mesure: string): Observable<EcigActiveChart[]>;
   abstract pushEcigEvolutionData(activity: EcigActive[]);
 }

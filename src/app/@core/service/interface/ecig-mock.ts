@@ -1,5 +1,5 @@
 import { Observable } from "rxjs";
-import { Ecig } from "../../model/ecig";
+import { Ecig } from "@core/model/ecig";
 
 export abstract class EcigMockInterface {
   abstract getEcigConfig(): Observable<Ecig>;

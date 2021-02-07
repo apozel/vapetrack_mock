@@ -1,8 +1,8 @@
-import { delay, takeWhile } from "rxjs/operators";
 import { AfterViewInit, Component, Input, OnDestroy } from "@angular/core";
+import { EcigActiveChart } from "@core/model/ecig";
+import { LayoutService } from "@core/service/impl/layout.service";
 import { NbThemeService } from "@nebular/theme";
-import { LayoutService } from "../../../@core/utils";
-import { ElectricityChart } from "../../../@core/data/electricity";
+import { delay, takeWhile } from "rxjs/operators";
 
 @Component({
   selector: "ngx-evolution-chart",
@@ -17,10 +17,10 @@ import { ElectricityChart } from "../../../@core/data/electricity";
     ></div>
   `,
 })
-export class ElectricityChartComponent implements AfterViewInit, OnDestroy {
+export class EvolutionChartComponent implements AfterViewInit, OnDestroy {
   private alive = true;
 
-  @Input() data: ElectricityChart[];
+  @Input() data: EcigActiveChart[];
 
   option: any;
   echartsIntance: any;

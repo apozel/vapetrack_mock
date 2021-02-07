@@ -1,32 +1,45 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { PeriodsService } from "./periods.service";
-import { EcigActive } from "../../model/ecig";
+import { Ecig, EcigActive } from "../../model/ecig";
 import { EcigActivityInterface } from "../interface/ecig-activity";
+import { EcigMockService } from "./ecig-mock.service";
 
 @Injectable()
 export class EcigActivityService extends EcigActivityInterface {
   private data: EcigActive[] = [];
+  private ecig: Ecig;
+
+  constructor(
+    private periods: PeriodsService,
+    private ecigMockService: EcigMockService
+  ) {
+    super();
+    this.ecigMockService
+      .getEcigConfig()
+      .subscribe((config) => (this.ecig = config));
+  }
 
   getEcigActivityData(): Observable<EcigActive[]> {
     return of(this.data);
   }
   pushEcigActivityData(activity: EcigActive) {
-    throw new Error("Method not implemented.");
+    this.data.push(activity);
+  }
+
+  getRandomDataMoment() {
+    var date = Date.now();
+    this.data.push(this.generateUserActivityRandomData(date));
   }
 
   private getRandom = (roundTo: number) => Math.round(Math.random() * roundTo);
-  private generateUserActivityRandomData(date) {
+  private generateUserActivityRandomData(date): EcigActive {
     return {
       date,
-      power: this.getRandom(100),
-      resistor: 0.25,
+      power: this.getRandom(this.ecig.power.max),
+      resistor: this.ecig.resistor.value,
       duration: this.getRandom(100),
     };
-  }
-
-  constructor(private periods: PeriodsService) {
-    super();
   }
 
   private getDataWeek(): EcigActive[] {

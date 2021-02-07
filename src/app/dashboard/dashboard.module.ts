@@ -16,13 +16,13 @@ import { NgxEchartsModule } from "ngx-echarts";
 import { ThemeModule } from "../@theme/theme.module";
 import { DashboardComponent } from "./dashboard.component";
 
-import { ECommerceUserActivityComponent } from "./activity-mock/ecig-activity.component";
-import { TemperatureComponent } from "./ecig-mock/ecig.component";
-import { TemperatureDraggerComponent } from "./ecig-mock/ecig-dragger/ecig-dragger.component";
-import { ElectricityComponent } from "./ecig-evolutions/evolution-charts.component";
-import { ElectricityChartComponent } from "./ecig-evolutions/evolution-charts/evolution-chart.component";
+import { EcigActivityComponent } from "./ecig-activity/ecig-activity.component";
+import { EcigDraggerComponent } from "./ecig-mock/ecig-dragger/ecig-dragger.component";
+import { EvolutionChartComponent } from "./ecig-evolutions/evolution-charts/evolution-chart.component";
 
 import { FormsModule } from "@angular/forms";
+import { EcigMockComponent } from "./ecig-mock/ecig.component";
+import { EvolutionsComponent } from "./ecig-evolutions/evolution-charts.component";
 
 @NgModule({
   imports: [
@@ -43,11 +43,11 @@ import { FormsModule } from "@angular/forms";
   ],
   declarations: [
     DashboardComponent,
-    TemperatureDraggerComponent,
-    TemperatureComponent,
-    ElectricityComponent,
-    ElectricityChartComponent,
-    ECommerceUserActivityComponent,
+    EcigDraggerComponent,
+    EvolutionChartComponent,
+    EcigActivityComponent,
+    EcigMockComponent,
+    EvolutionsComponent,
   ],
   exports: [DashboardComponent],
 })

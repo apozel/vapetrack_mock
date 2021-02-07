@@ -4,16 +4,16 @@
     <nb-tab tabTitle="Power">
 
       <div class="slider-container">
-        <ngx-ecig-dragger [(value)]="temperature" (power)="temperatureOff = !$event" [min]="temperatureData.min"
-          [max]="temperatureData.max" [disableArcColor]="theme.arcEmpty" [fillColors]="theme.arcFill"
-          [thumbBg]="theme.thumbBg" [thumbBorderColor]="theme.thumbBorder">
+        <ngx-ecig-dragger [(value)]="power.value" (power)="ecigOff = !$event" [min]="power.min" [max]="power.max"
+          [disableArcColor]="theme.arcEmpty" [fillColors]="theme.arcFill" [thumbBg]="theme.thumbBg"
+          [thumbBorderColor]="theme.thumbBorder">
 
-          <div class="slider-value-container" [ngClass]="{ 'off': temperatureOff }">
+          <div class="slider-value-container" [ngClass]="{ 'off': ecigOff }">
             <div class="value temperature h1">
-              {{ temperatureOff ? '--' : (temperature | ngxRound) }}
+              {{ ecigOff ? '--' : (power.value | ngxRound) }}
             </div>
             <div class="desc">
-              Celsius
+              Watts
             </div>
           </div>
         </ngx-ecig-dragger>
@@ -38,13 +38,13 @@
     <nb-tab tabTitle="Resistor">
 
       <div class="slider-container">
-        <ngx-ecig-dragger [(value)]="humidity" (power)="humidityOff = !$event" [min]="humidityData.min"
-          [max]="humidityData.max" [disableArcColor]="theme.arcEmpty" [fillColors]="theme.arcFill"
-          [thumbBg]="theme.thumbBg" [thumbBorderColor]="theme.thumbBorder">
+        <ngx-ecig-dragger [(value)]="resistor.value" (power)="ecigOff = !$event" [min]="resistor.min"
+          [max]="resistor.max" [disableArcColor]="theme.arcEmpty" [fillColors]="theme.arcFill" [thumbBg]="theme.thumbBg"
+          [thumbBorderColor]="theme.thumbBorder">
 
-          <div class="slider-value-container" [ngClass]="{ 'off': humidityOff }">
+          <div class="slider-value-container" [ngClass]="{ 'off': ecigOff }">
             <div class="value humidity h1">
-              {{ humidityOff ? '--' : (humidity | ngxRound) }}
+              {{ ecigOff ? '--' : (power.value | ngxRound) }}
             </div>
           </div>
         </ngx-ecig-dragger>

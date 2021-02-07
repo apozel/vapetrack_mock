@@ -20,8 +20,7 @@ const VIEW_BOX_SIZE = 300;
   templateUrl: "./ecig-dragger.component.html",
   styleUrls: ["./ecig-dragger.component.scss"],
 })
-export class TemperatureDraggerComponent
-  implements AfterViewInit, OnChanges, OnInit {
+export class EcigDraggerComponent implements AfterViewInit, OnChanges, OnInit {
   @ViewChild("svgRoot", { static: true }) svgRoot: ElementRef;
 
   @Input() fillColors: string | string[];
@@ -154,7 +153,7 @@ export class TemperatureDraggerComponent
   }
 
   private invalidate(): void {
-    this.bottomAngleRad = TemperatureDraggerComponent.toRad(this.bottomAngle);
+    this.bottomAngleRad = EcigDraggerComponent.toRad(this.bottomAngle);
     this.calculateVars();
 
     this.invalidateClipPathStr();
@@ -168,7 +167,7 @@ export class TemperatureDraggerComponent
   }
 
   private calculateVars() {
-    this.bottomAngleRad = TemperatureDraggerComponent.toRad(this.bottomAngle);
+    this.bottomAngleRad = EcigDraggerComponent.toRad(this.bottomAngle);
     this.colors =
       typeof this.fillColors === "string" ? [this.fillColors] : this.fillColors;
 

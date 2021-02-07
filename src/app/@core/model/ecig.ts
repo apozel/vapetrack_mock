@@ -16,7 +16,7 @@ export interface Resistor {
   max: number;
 }
 
-export interface EcigChartData {
+export interface EcigActiveChart {
   label: string;
   value: number;
 }
@@ -26,4 +26,8 @@ export interface EcigActive {
   power: number;
   resistor: number;
   duration: number;
+}
+
+export interface EcigSendActive {
+  [date: string]: EcigActive[];
 }

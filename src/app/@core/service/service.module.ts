@@ -3,8 +3,9 @@ import { CommonModule } from "@angular/common";
 
 import { UserService } from "./impl/users.service";
 import { PeriodsService } from "./impl/periods.service";
+import { LayoutService } from "./impl/layout.service";
 
-const SERVICES = [UserService, PeriodsService];
+const SERVICES = [UserService, PeriodsService, LayoutService];
 
 @NgModule({
   imports: [CommonModule],
