@@ -19,10 +19,10 @@ import { DashboardComponent } from "./dashboard.component";
 import { EcigActivityComponent } from "./ecig-activity/ecig-activity.component";
 import { EcigDraggerComponent } from "./ecig-mock/ecig-dragger/ecig-dragger.component";
 import { EvolutionChartComponent } from "./ecig-evolutions/evolution-charts/evolution-chart.component";
-
-import { FormsModule } from "@angular/forms";
 import { EcigMockComponent } from "./ecig-mock/ecig.component";
 import { EvolutionsComponent } from "./ecig-evolutions/evolution-charts.component";
+
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   imports: [

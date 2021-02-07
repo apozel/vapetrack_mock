@@ -19,6 +19,11 @@
             </div>
 
             <div class="visited-percentages">
+              <div class="caption">resistor</div>
+              {{ item.resistor }} Ohms
+            </div>
+
+            <div class="visited-percentages">
               <div class="caption">Duration</div>
               {{ item.duration }}ms
             </div>
@@ -40,7 +45,7 @@
         <span>291 <span class="caption">USD</span></span>
       </span>
 
-      <nb-select [selected]="type" (selectedChange)="getDatachart($event);type = $event" class="type-select">
+      <nb-select [selected]="type" (selectedChange)="getDatachart($event); type = $event" class="type-select">
         <nb-option *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
       </nb-select>
     </nb-card-header>

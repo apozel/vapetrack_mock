@@ -1,9 +1,8 @@
 import { Component, OnDestroy } from "@angular/core";
+import { EcigActive, EcigActiveChart } from "@core/model/ecig";
+import { EcigEvolutionService } from "@core/service/impl/ecig-evolution.service";
 import { NbThemeService } from "@nebular/theme";
 import { takeWhile } from "rxjs/operators";
-import { forkJoin } from "rxjs";
-import { EcigEvolutionService } from "@core/service/impl/ecig-evolution.service";
-import { EcigActive, EcigActiveChart, EcigSendActive } from "@core/model/ecig";
 
 @Component({
   selector: "ngx-evolutions",

@@ -1,4 +1,5 @@
 import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 import {
   ModuleWithProviders,
   NgModule,
@@ -11,19 +12,18 @@ import { of as observableOf } from "rxjs";
 import { throwIfAlreadyLoaded } from "./module-import-guard";
 import { EcigActivityService } from "./service/impl/ecig-activity.service";
 import { EcigEvolutionService } from "./service/impl/ecig-evolution.service";
+import { EcigHttpService } from "./service/impl/ecig-http.service";
 import { EcigMockService } from "./service/impl/ecig-mock.service";
 import { UserService } from "./service/impl/users.service";
-import { EcigActivityInterface } from "./service/interface/ecig-activity";
-import { EcigEvolutionInterface } from "./service/interface/ecig-evolutions";
-import { EcigMockInterface } from "./service/interface/ecig-mock";
 import { UserData } from "./service/interface/users";
 import { MockDataModule } from "./service/service.module";
 
 const DATA_SERVICES = [
   { provide: UserData, useClass: UserService },
-  { provide: EcigEvolutionInterface, useClass: EcigEvolutionService },
-  { provide: EcigMockService, useClass: EcigMockInterface },
-  { provide: EcigActivityInterface, useClass: EcigActivityService },
+  { provide: EcigEvolutionService, useClass: EcigEvolutionService },
+  { provide: EcigMockService, useClass: EcigMockService },
+  { provide: EcigActivityService, useClass: EcigActivityService },
+  { provide: EcigHttpService, useClass: EcigHttpService },
 ];
 
 export class NbSimpleRoleProvider extends NbRoleProvider {
@@ -58,7 +58,7 @@ export const NB_CORE_PROVIDERS = [
 ];
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
   exports: [NbAuthModule],
   declarations: [],
 })

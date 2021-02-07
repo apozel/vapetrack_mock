@@ -1,15 +1,14 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { LayoutService } from "@core/service/impl/layout.service";
 import {
   NbMediaBreakpointsService,
   NbMenuService,
   NbSidebarService,
   NbThemeService,
 } from "@nebular/theme";
-
-import { UserData } from "../../../@core/service/interface/users";
-import { LayoutService } from "../../../@core/utils";
-import { map, takeUntil } from "rxjs/operators";
 import { Subject } from "rxjs";
+import { map, takeUntil } from "rxjs/operators";
+import { UserData } from "../../../@core/service/interface/users";
 
 @Component({
   selector: "ngx-header",

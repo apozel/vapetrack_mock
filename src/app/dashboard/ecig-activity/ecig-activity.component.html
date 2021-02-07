@@ -2,7 +2,7 @@
 
   <nb-card-header>
     <span>Ecig Activity</span>
-    <nb-select [selected]="type" (selectedChange)="getEcigActivity($event); type = $event">
+    <nb-select [selected]="type">
       <nb-option *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
     </nb-select>
   </nb-card-header>
@@ -20,6 +20,11 @@
       </div>
 
       <div class="visited-percentages">
+        <div class="caption">resistor</div>
+        {{ item.resistor }} Ohms
+      </div>
+
+      <div class="visited-percentages">
         <div class="caption">Duration</div>
         {{ item.duration }}ms
       </div>
@@ -28,24 +33,14 @@
   </nb-list>
 
   <nb-card-footer>
-    <nb-actions [size]="actionSize" fullWidth>
-      <nb-action>
-        <nb-icon icon="pause-circle-outline" pack="eva"></nb-icon>
-        Pause
-      </nb-action>
-      <nb-action>
-        <nb-icon icon="list-outline" pack="eva"></nb-icon>
-        Logs
-      </nb-action>
-      <nb-action>
-        <nb-icon icon="search-outline" pack="eva"></nb-icon>
-        Search
-      </nb-action>
-      <nb-action>
-        <nb-icon icon="settings-2-outline" pack="eva"></nb-icon>
-        Setup
-      </nb-action>
-    </nb-actions>
+
+    <button (click)="onClickRandom()" fullWidth nbButton>
+      <nb-icon icon="refresh-outline" pack="eva"></nb-icon> Random
+    </button>
+
+    <button (click)="onClickSend()" fullWidth nbButton>
+      <nb-icon icon="paper-plane-outline" pack="eva"></nb-icon> Send Data
+    </button>
   </nb-card-footer>
 
 </nb-card>

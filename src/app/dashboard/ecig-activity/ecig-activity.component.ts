@@ -52,6 +52,13 @@ export class EcigActivityComponent implements OnDestroy, OnInit {
       .subscribe((ecigActivityData) => (this.ecigActive = ecigActivityData));
   }
 
+  onClickRandom() {
+    this.ecigActivityService.getRandomDataMoment();
+  }
+  onClickSend() {
+    this.ecigActivityService.sendData();
+  }
+
   ngOnDestroy() {
     this.alive = false;
   }

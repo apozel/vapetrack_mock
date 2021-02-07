@@ -4,6 +4,8 @@ import { PeriodsService } from "./periods.service";
 import { Ecig, EcigActive } from "../../model/ecig";
 import { EcigActivityInterface } from "../interface/ecig-activity";
 import { EcigMockService } from "./ecig-mock.service";
+import { EcigEvolutionService } from "./ecig-evolution.service";
+import { EcigHttpService } from "./ecig-http.service";
 
 @Injectable()
 export class EcigActivityService extends EcigActivityInterface {
@@ -12,7 +14,9 @@ export class EcigActivityService extends EcigActivityInterface {
 
   constructor(
     private periods: PeriodsService,
-    private ecigMockService: EcigMockService
+    private ecigMockService: EcigMockService,
+    private ecigEvolutionService: EcigEvolutionService,
+    private ecigHttp: EcigHttpService
   ) {
     super();
     this.ecigMockService
@@ -36,10 +40,16 @@ export class EcigActivityService extends EcigActivityInterface {
   private generateUserActivityRandomData(date): EcigActive {
     return {
       date,
-      power: this.getRandom(this.ecig.power.max),
+      power: this.ecig.power.value,
       resistor: this.ecig.resistor.value,
       duration: this.getRandom(100),
     };
+  }
+
+  sendData() {
+    this.ecigEvolutionService.pushEcigEvolutionData(this.data);
+    this.ecigHttp.send({ ...this.data });
+    this.data = [];
   }
 
   private getDataWeek(): EcigActive[] {
