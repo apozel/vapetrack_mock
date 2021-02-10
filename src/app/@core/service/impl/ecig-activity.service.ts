@@ -42,7 +42,7 @@ export class EcigActivityService extends EcigActivityInterface {
       date,
       power: this.ecig.power.value,
       resistor: this.ecig.resistor.value,
-      duration: this.getRandom(100),
+      duration: this.getRandom(20),
     };
   }
 
