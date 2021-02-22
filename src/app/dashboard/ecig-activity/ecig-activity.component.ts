@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { NbMediaBreakpointsService, NbThemeService } from "@nebular/theme";
 import { map, takeWhile } from "rxjs/operators";
-import { EcigActive } from "@core/model/ecig";
-import { EcigActivityService } from "@core/service/impl/ecig-activity.service";
-import { EcigActivityInterface } from "@core/service/interface/ecig-activity";
+import { EcigActive } from "src/app/@core/model/ecig";
+import { EcigActivityService } from "src/app/@core/service/impl/ecig-activity.service";
+import { EcigActivityInterface } from "src/app/@core/service/interface/ecig-activity";
 
 @Component({
   selector: "ngx-ecig-activity",
@@ -13,8 +13,10 @@ import { EcigActivityInterface } from "@core/service/interface/ecig-activity";
 export class EcigActivityComponent implements OnDestroy, OnInit {
   private alive = true;
 
-  type = "month";
-  types = ["week", "month", "year"];
+  date = new Date();
+
+  type = 0.2;
+  types = [0.2, 0.5, 1, 2, 3];
   currentTheme: string;
   actionSize = "medium";
 
@@ -53,7 +55,8 @@ export class EcigActivityComponent implements OnDestroy, OnInit {
   }
 
   onClickRandom() {
-    this.ecigActivityService.getRandomDataMoment();
+    this.ecigActivityService.getRandomDataMoment(this.date);
+    this.date = this.addMinutes(this.date, this.type);
   }
   onClickSend() {
     this.ecigActivityService.sendData();
@@ -61,5 +64,9 @@ export class EcigActivityComponent implements OnDestroy, OnInit {
 
   ngOnDestroy() {
     this.alive = false;
+  }
+
+  addMinutes(date, minutes) {
+    return new Date(date.getTime() + minutes * 60000);
   }
 }

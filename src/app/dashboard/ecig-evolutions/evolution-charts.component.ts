@@ -1,8 +1,9 @@
 import { Component, OnDestroy } from "@angular/core";
-import { EcigActive, EcigActiveChart } from "@core/model/ecig";
-import { EcigEvolutionService } from "@core/service/impl/ecig-evolution.service";
+
+import { EcigEvolutionService } from "src/app/@core/service/impl/ecig-evolution.service";
 import { NbThemeService } from "@nebular/theme";
-import { takeWhile } from "rxjs/operators";
+import { catchError, takeWhile } from "rxjs/operators";
+import { EcigActive, EcigActiveChart } from "src/app/@core/model/ecig";
 
 @Component({
   selector: "ngx-evolutions",
@@ -12,8 +13,8 @@ import { takeWhile } from "rxjs/operators";
 export class EvolutionsComponent implements OnDestroy {
   private alive = true;
 
-  listData: EcigActive[];
-  chartData: EcigActiveChart[];
+  listData: EcigActive[] = [];
+  chartData: EcigActiveChart[] = [];
 
   type = "power";
   types = ["power", "resistor", "duration"];
@@ -45,7 +46,13 @@ export class EvolutionsComponent implements OnDestroy {
   getDatachart(type: string) {
     this.ecigEvolutionService
       .getChartData(type)
-      .pipe(takeWhile(() => this.alive))
+      .pipe(
+        takeWhile(() => this.alive),
+        catchError((err) => {
+          console.log(err);
+          return [];
+        })
+      )
       .subscribe((chartData: EcigActiveChart[]) => {
         this.chartData = chartData;
       });

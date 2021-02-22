@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, Input, OnDestroy } from "@angular/core";
-import { EcigActiveChart } from "@core/model/ecig";
-import { LayoutService } from "@core/service/impl/layout.service";
 import { NbThemeService } from "@nebular/theme";
 import { delay, takeWhile } from "rxjs/operators";
+import { EcigActiveChart } from "src/app/@core/model/ecig";
+import { LayoutService } from "src/app/@core/service/impl/layout.service";
 
 @Component({
   selector: "ngx-evolution-chart",

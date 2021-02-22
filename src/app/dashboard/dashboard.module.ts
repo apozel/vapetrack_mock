@@ -10,6 +10,7 @@ import {
   NbListModule,
   NbIconModule,
   NbLayoutModule,
+  NbDatepickerModule,
 } from "@nebular/theme";
 import { NgxEchartsModule } from "ngx-echarts";
 
@@ -40,6 +41,7 @@ import { FormsModule } from "@angular/forms";
     NbIconModule,
     NbButtonModule,
     NgxEchartsModule,
+    NbDatepickerModule,
   ],
   declarations: [
     DashboardComponent,

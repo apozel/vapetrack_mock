@@ -10,7 +10,7 @@
           <nb-list-item *ngFor="let item of listData">
 
             <div class="visited-date">
-              {{ item.date }}
+              {{ item.date |date:'mediumTime' }}
             </div>
 
             <div class="visited-pages-count">
@@ -25,7 +25,7 @@
 
             <div class="visited-percentages">
               <div class="caption">Duration</div>
-              {{ item.duration }}ms
+              {{ item.duration }} ms
             </div>
 
           </nb-list-item>

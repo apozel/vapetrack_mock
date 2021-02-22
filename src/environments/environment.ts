@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverApi: "http://192.168.1.24:3000/api/ecig/save/",
+  serverApi: "http://web.mock.local/api/ecig/save/",
 };
 
 /*

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  serverApi: "https://web.mock.local/api/ecig/save/",
 };

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { LayoutService } from "@core/service/impl/layout.service";
+import { LayoutService } from "src/app/@core/service/impl/layout.service";
 import {
   NbMediaBreakpointsService,
   NbMenuService,

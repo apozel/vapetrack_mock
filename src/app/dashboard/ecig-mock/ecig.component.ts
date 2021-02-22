@@ -1,8 +1,8 @@
 import { Component, OnDestroy } from "@angular/core";
-import { Ecig, Power, Resistor } from "@core/model/ecig";
-import { EcigMockService } from "@core/service/impl/ecig-mock.service";
 import { NbThemeService } from "@nebular/theme";
 import { takeWhile } from "rxjs/operators";
+import { Ecig, Power, Resistor } from "src/app/@core/model/ecig";
+import { EcigMockService } from "src/app/@core/service/impl/ecig-mock.service";
 
 @Component({
   selector: "ngx-ecig",

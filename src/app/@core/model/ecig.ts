@@ -22,7 +22,7 @@ export interface EcigActiveChart {
 }
 
 export interface EcigActive {
-  date: string;
+  date: number;
   power: number;
   resistor: number;
   duration: number;

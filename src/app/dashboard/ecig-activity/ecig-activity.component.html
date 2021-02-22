@@ -2,6 +2,8 @@
 
   <nb-card-header>
     <span>Ecig Activity</span>
+    <input nbInput placeholder="Pick Date" [(ngModel)]="date" [nbDatepicker]="dateTimePicker">
+    <nb-date-timepicker withSeconds #dateTimePicker></nb-date-timepicker>
     <nb-select [selected]="type">
       <nb-option *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
     </nb-select>
@@ -11,7 +13,7 @@
     <nb-list-item *ngFor="let item of ecigActive">
 
       <div class="visited-date">
-        {{ item.date }}
+        {{ item.date|date:'medium'}}
       </div>
 
       <div class="visited-pages-count">
@@ -20,7 +22,7 @@
       </div>
 
       <div class="visited-percentages">
-        <div class="caption">resistor</div>
+        <div class="caption">Resistor</div>
         {{ item.resistor }} Ohms
       </div>
 

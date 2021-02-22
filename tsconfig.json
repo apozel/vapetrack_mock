@@ -17,18 +17,7 @@
       "es2018",
       "dom"
     ],
-    "baseUrl": "src",
-    "paths": {
-      "@environment/*": [
-        "environments/*"
-      ],
-      "@core/*": [
-        "app/@core/*"
-      ],
-      "@theme/*": [
-        "app/@theme/*"
-      ],
-    },
+    "baseUrl": "./",
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

@@ -1,11 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { EcigActive } from "@core/model/ecig";
-import { environment } from "@environment/environment";
+import { EcigActive } from "src/app/@core/model/ecig";
 import { NbToastrService } from "@nebular/theme";
 import { ecigHttp } from "../interface/ecig-http";
 import { NbGlobalPhysicalPosition } from "@nebular/theme";
 import { catchError } from "rxjs/operators";
+import { environment } from "src/environments/environment";
 
 @Injectable()
 export class EcigHttpService extends ecigHttp {
